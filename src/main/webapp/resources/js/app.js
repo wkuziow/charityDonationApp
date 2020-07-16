@@ -104,6 +104,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("summaryButton").addEventListener("click", summary);
 
+
+
     /**
      * Form Select
      */

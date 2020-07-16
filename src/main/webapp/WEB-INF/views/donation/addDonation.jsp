@@ -73,6 +73,18 @@
     </div>
 
     <div class="form--steps-container">
+
+        <c:choose>
+            <c:when test="${not empty errors}">
+                <div class="error">
+                    <c:forEach items="${errors}" var="err">
+                        ${err}
+                        <br>
+                    </c:forEach>
+                </div>
+            </c:when>
+        </c:choose>
+
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
         <form method="post">
@@ -203,6 +215,8 @@
 
                 <div class="summary">
                     <div class="form-section">
+
+
                         <h4>Oddajesz:</h4>
                         <form:form method="post">
                         <ul>

@@ -23,7 +23,13 @@ html {
 body {
   margin: 0;
 }
+.error{
+  font-size: medium;
+  color: red;
+  border:2px solid red;
+  padding:10px;
 
+}
 /**
  * Render the `main` element consistently in IE.
  */
@@ -1617,7 +1623,8 @@ footer .bottom-line--icons a img {
 
 /* line 26, scss/style.scss */
 .login-page form {
-  max-width: 580px;
+  font-size: medium;
+  max-width: 880px;
   width: 100%;
   margin-top: 30px;
 }

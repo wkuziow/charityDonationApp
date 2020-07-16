@@ -1,11 +1,9 @@
 package pl.coderslab.charity.donation;
 
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,7 +13,6 @@ import pl.coderslab.charity.category.CategoryRepository;
 import pl.coderslab.charity.institution.Institution;
 import pl.coderslab.charity.institution.InstitutionRepository;
 
-import java.lang.reflect.MalformedParameterizedTypeException;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +24,7 @@ public class DonationController {
     DonationRepository donationRepository;
     CategoryRepository categoryRepository;
     InstitutionRepository institutionRepository;
+    DonationValidator donationValidator;
 
 
 
@@ -36,12 +34,17 @@ public class DonationController {
     }
 
     @RequestMapping(value = "/addDonation", method = RequestMethod.POST)
-    public String addDonationPost(@RequestParam @Validated Map<String, String> allParams){
-//        if (bindingResult.hasErrors()) {
-//            return "donation/addDonation";
-//        }
-        donationService.donationParametersHandler(allParams);
-        return "donation/donationThankyou";
+    public String addDonationPost(@RequestParam Map<String, String> allParams, Model model){
+        List<String> errors = donationValidator.validateDonation(allParams);
+        String result = "";
+       if (!errors.isEmpty() && errors != null) {
+           model.addAttribute("errors", errors);
+            result =  "donation/addDonation";
+        } else {
+           donationService.donationParametersHandler(allParams);
+           result = "donation/donationThankyou";
+       }
+        return result;
     }
 
     @ModelAttribute("categoriesList")
