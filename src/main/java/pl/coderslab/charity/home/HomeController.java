@@ -1,6 +1,7 @@
 package pl.coderslab.charity.home;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.donation.DonationService;
 import pl.coderslab.charity.institution.Institution;
 import pl.coderslab.charity.institution.InstitutionRepository;
+import pl.coderslab.charity.user.CurrentUser;
+import pl.coderslab.utils.Utils;
 
 import java.util.List;
 
@@ -16,14 +19,16 @@ public class HomeController {
     @Autowired
     private InstitutionRepository institutionRepository;
     private DonationService donationService;
+    private Utils utils;
 
-    public HomeController(DonationService donationService) {
+    public HomeController(DonationService donationService, Utils utils) {
         this.donationService = donationService;
+        this.utils = utils;
     }
 
     @RequestMapping("/")
     public String homeAction(Model model) {
-        return "index";
+        return "home/index";
     }
 
     @ModelAttribute("institutionList")
@@ -39,5 +44,10 @@ public class HomeController {
     @ModelAttribute("numberOfDonations")
     public int numberOfDonations(){
         return donationService.countDonations();
+    }
+
+    @ModelAttribute("currentUserFullName")
+    public String currentUser(@AuthenticationPrincipal CurrentUser customUser) {
+        return utils.currentUser(customUser);
     }
 }

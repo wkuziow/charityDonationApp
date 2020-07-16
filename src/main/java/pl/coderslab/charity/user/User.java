@@ -2,12 +2,10 @@ package pl.coderslab.charity.user;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -44,6 +42,11 @@ public class User {
     @Email
     @Size(max = 40, message = "maksymalna długość to 40 znaków")
     private String email;
+
+
+    public String getFullname() {
+        return firstName + " " + lastName;
+    }
 
 
 }

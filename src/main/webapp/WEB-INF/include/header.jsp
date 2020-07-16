@@ -1,8 +1,16 @@
 <header class="header--main-page">
     <nav class="container container--70">
         <ul class="nav--actions">
-            <li><a href="" class="btn btn--small btn--without-border">Zaloguj</a></li>
-            <li><a href="/register" class="btn btn--small btn--highlighted">Za&#322&#243&#380 konto</a></li>
+            <c:choose>
+                <c:when test="${currentUserFullName != -1}">
+                    <%@include file="/WEB-INF/views/welcome.jsp" %>
+                    <%@include file="/WEB-INF/views/logout.jsp" %>
+                </c:when>
+                <c:otherwise>
+                    <li><a href="/register" class="btn btn--small btn--highlighted">Za&#322&#243&#380 konto</a></li>
+                    <li><a href="/login" class="btn btn--small btn--without-border">Zaloguj</a></li>
+                </c:otherwise>
+            </c:choose>
         </ul>
 
         <ul>
