@@ -10,7 +10,7 @@ import pl.coderslab.charity.donation.DonationService;
 import pl.coderslab.charity.institution.Institution;
 import pl.coderslab.charity.institution.InstitutionRepository;
 import pl.coderslab.charity.user.CurrentUser;
-import pl.coderslab.utils.Utils;
+import pl.coderslab.charity.utils.Utils;
 
 import java.util.List;
 

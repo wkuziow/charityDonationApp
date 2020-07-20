@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.coderslab.charity.user.CurrentUser;
-import pl.coderslab.utils.Utils;
+import pl.coderslab.charity.utils.Utils;
 
 @Controller
 public class LoginController {

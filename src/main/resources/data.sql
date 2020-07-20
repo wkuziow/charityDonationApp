@@ -59,3 +59,4 @@ INSERT INTO charity.donation_categories (donation_id, categories_id) VALUES (1, 
 INSERT INTO charity.donation_categories (donation_id, categories_id) VALUES (2, 6);
 INSERT INTO charity.donation_categories (donation_id, categories_id) VALUES (3, 3);
 INSERT INTO charity.donation_categories (donation_id, categories_id) VALUES (4, 11);
+insert into charity.user (email, enabled, first_name, last_name, password, role) values ('wkuziow@gmail.com', true, 'Wojtek', 'Kuziów', '$2a$10$Aw3MY7qToFfjxIrLni6W/uuyl0sUp0L8GY/7a9t.Ay7sLSH4GqeoC', 1);

@@ -1,4 +1,4 @@
-package pl.coderslab.utils;
+package pl.coderslab.charity.utils;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
