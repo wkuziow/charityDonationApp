@@ -1,47 +1,47 @@
 document.addEventListener("DOMContentLoaded", function () {
     function summary() {
-    var categories = [];
-    var categoryId = [];
-    document.querySelectorAll("div[data-step=\"1\"] div.form-group--checkbox label input").forEach(function (item) {
-        if (item.checked) {
-            var text = item.parentElement.querySelector("span.description").innerText;
-            var id = item.parentElement.querySelector("input").value;
-            categories.push(text);
-            categoryId.push(id);
-            // document.getElementById("summaryCategory").innerText = document.getElementById("summaryCategory").innerText + text + " ";
-        }
-    });
+        var categories = [];
+        var categoryId = [];
+        document.querySelectorAll("div[data-step=\"1\"] div.form-group--checkbox label input").forEach(function (item) {
+            if (item.checked) {
+                var text = item.parentElement.querySelector("span.description").innerText;
+                var id = item.parentElement.querySelector("input").value;
+                categories.push(text);
+                categoryId.push(id);
+                // document.getElementById("summaryCategory").innerText = document.getElementById("summaryCategory").innerText + text + " ";
+            }
+        });
 
-    categories.forEach(function (element) {
-        console.log("Element: " + element);
-    });
+        categories.forEach(function (element) {
+            console.log("Element: " + element);
+        });
 
-    categoryId.forEach(function (element) {
-        console.log("Element: " + element);
-    });
+        categoryId.forEach(function (element) {
+            console.log("Element: " + element);
+        });
 
-    var numberOfBags = document.querySelector("#numberOfBags").value;
-    console.log(numberOfBags);
+        var numberOfBags = document.querySelector("#numberOfBags").value;
+        console.log(numberOfBags);
 
-    var institutionId;
-    var institutionName;
+        var institutionId;
+        var institutionName;
 
-    document.querySelectorAll("div[data-step=\"3\"] div.form-group--checkbox label input").forEach(function (item) {
-        if (item.checked) {
-            institutionId = item.parentElement.querySelector("input").value;
-            institutionName = document.querySelector("#institutionName").innerText;
-        }
-    });
-    console.log(institutionId);
+        document.querySelectorAll("div[data-step=\"3\"] div.form-group--checkbox label input").forEach(function (item) {
+            if (item.checked) {
+                institutionId = item.parentElement.querySelector("input").value;
+                institutionName = document.querySelector("#institutionName").innerText;
+            }
+        });
+        console.log(institutionId);
 
-    var adress = document.querySelector("#adress").value;
-    var city = document.querySelector("#city").value;
-    var zipCode = document.querySelector("#postcode").value;
-    var phone = document.querySelector("#phone").value;
-    var date = document.querySelector("#date").value;
-    var time = document.querySelector("#time").value;
-    var comment = document.querySelector("#comment").value;
-    console.log(adress + city + zipCode + phone + date + date + time + comment);
+        var adress = document.querySelector("#adress").value;
+        var city = document.querySelector("#city").value;
+        var zipCode = document.querySelector("#postcode").value;
+        var phone = document.querySelector("#phone").value;
+        var date = document.querySelector("#date").value;
+        var time = document.querySelector("#time").value;
+        var comment = document.querySelector("#comment").value;
+        console.log(adress + city + zipCode + phone + date + date + time + comment);
 
 
         var numberOfBagsSummary = document.getElementById("numberOfBagsSummary");
@@ -104,7 +104,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("summaryButton").addEventListener("click", summary);
 
-
+    function goBack() {
+        window.history.back();
+    }
+    document.getElementById("goback").addEventListener("click", goBack);
 
     /**
      * Form Select

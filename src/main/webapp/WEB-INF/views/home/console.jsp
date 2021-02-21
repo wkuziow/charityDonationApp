@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: wojtek
-  Date: 14.07.2020
-  Time: 22:00
+  Date: 23.07.2020
+  Time: 15:32
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
@@ -15,7 +15,7 @@
 <html lang="pl-PL">
 <head>
 
-    <title>Dziękujemy</title>
+    <title>Panel zarządzania</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,12 +25,11 @@
 <body>
 <%@include file="/WEB-INF/include/header.jsp" %>
 
-<div class="slogan container container--90">
-    <h2>
-        Dziękujemy za przesłanie formularza Na maila prześlemy wszelkie
-        informacje o odbiorze.
-    </h2>
-</div>
+
+<ul class="container container--70">
+    <li><a href="/console/allInstitutions" class="btn btn--without-border">Lista fundacji</a></li>
+    <li><a href="/addInstitution" class="btn btn--without-border">Dodaj nową fundację</a></li>
+</ul>
 
 <%@include file="/WEB-INF/include/footer.jsp" %>
 

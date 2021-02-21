@@ -1,9 +1,9 @@
 package pl.coderslab.charity.donation;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 import pl.coderslab.charity.category.Category;
 import pl.coderslab.charity.institution.Institution;
-import pl.coderslab.charity.user.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;

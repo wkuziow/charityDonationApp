@@ -42,12 +42,17 @@ public class HomeController {
     }
 
     @ModelAttribute("numberOfDonations")
-    public int numberOfDonations(){
+    public int numberOfDonations() {
         return donationService.countDonations();
     }
 
     @ModelAttribute("currentUserFullName")
     public String currentUser(@AuthenticationPrincipal CurrentUser customUser) {
         return utils.currentUser(customUser);
+    }
+
+    @RequestMapping("/console")
+    public String consoleAction() {
+        return "home/console";
     }
 }

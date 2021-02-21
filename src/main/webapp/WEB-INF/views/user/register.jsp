@@ -56,6 +56,7 @@
                         placeholder="hasło"  required="true"/>
             <form:errors path="password" cssClass="error"/>
         </div>
+
         <div class="form-group">
             <label for="confirmPasswordId" >Potwierdź hasło: </label>
             <form:input type="password" path="confirmPassword" id="confirmPasswordId"

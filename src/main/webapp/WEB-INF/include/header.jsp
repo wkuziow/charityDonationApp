@@ -1,10 +1,17 @@
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <header class="header--main-page">
     <nav class="container container--70">
         <ul class="nav--actions">
+
             <security:authorize access="isAuthenticated()">
 
                     <li>Witaj! ${currentUserFullName}</li>
-                    <%@include file="/WEB-INF/views/home/logout.jsp" %>
+                    <li><%@include file="/WEB-INF/views/home/logout.jsp" %> </li>
+            </security:authorize>
+
+            <security:authorize access="hasRole('ROLE_ADMIN')">
+                <li>test</li>i
             </security:authorize>
 
             <security:authorize access="isAnonymous()">
